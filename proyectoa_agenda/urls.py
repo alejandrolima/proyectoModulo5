@@ -19,7 +19,7 @@ from app_contactos.views import ContactoListar, ContactoDetalle, ContactoNuevo, 
 from django.conf.urls.static import static
 from  app_contactos.serialisables import CategoriasViewSet
 from rest_framework import response,request
-from app_contactos.views import api_view
+from app_contactos.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -43,12 +43,6 @@ urlpatterns = [
     #Sólo ejemplo para mostrar una página HTML estática
     path('app_contactos/cerrarsesion', CerrarSesion, name='cerrarsesion'),	
 
-    path(
-        'categoria/',
-        CategoriasViewSet.as_view({'get': 'retrieve'}),
-        name='categorias'
-    ),
-
-    path('',  api_view. getCategorias),
+    path('categoria/',  getCategorias),
 
 ]
