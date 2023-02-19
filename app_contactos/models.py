@@ -24,7 +24,7 @@ class Meta:	 db_table = 'categorias'
 
 class Productos(models.Model):
 	nombre = models.CharField(max_length=150, null=False, verbose_name="Nombre", default="")
-	descripcion = models.CharField(max_length=9, null=True, blank=True, verbose_name="descripcion", default="")
+	descripcion = models.CharField(max_length=9, null=True, blank=True, verbose_name="Descripcion", default="")
 	categoria = models.ForeignKey(Categorias, on_delete=models.CASCADE)
 	precio = models.DecimalField(decimal_places=2,null=False, verbose_name="Precio", max_digits=10)
 	unidades = models.CharField(max_length = 3,null=False, verbose_name="Unidades", default = "")
