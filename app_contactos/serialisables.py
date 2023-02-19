@@ -8,7 +8,7 @@ class CategoriaSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Categorias
-        fields = ['id', 'nombre', 'descripcion', 'fecha_alta', 'fecha_actualizacion']
+        fields = ['nombre', 'descripcion', 'fecha_alta', 'fecha_actualizacion']
 
 class CategoriasViewSet(viewsets.ModelViewSet):
 

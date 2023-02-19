@@ -10,6 +10,10 @@ from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin 
 from django import forms
 from django.contrib import messages
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
+from .models import Categorias
+from .serialisables import CategoriaSerializer
 
 #Para obtener todos los registros de la tabla Contactos 
 class ContactoListar(ListView): 
@@ -59,3 +63,10 @@ class ContactoEliminar(SuccessMessageMixin, DeleteView):
 #Ejemplo de redirección a una página HTML existente
 def CerrarSesion(request):
     return render(request, 'logout.html')
+
+
+@api_view(['GET'])
+def getCategorias(request):
+    categorias = Categorias.objects.all()
+    serializer = CategoriaSerializer(categorias, many=True)
+    return Response(serializer.data)

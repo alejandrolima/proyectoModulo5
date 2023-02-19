@@ -19,6 +19,7 @@ from app_contactos.views import ContactoListar, ContactoDetalle, ContactoNuevo, 
 from django.conf.urls.static import static
 from  app_contactos.serialisables import CategoriasViewSet
 from rest_framework import response,request
+from app_contactos.views import api_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -47,5 +48,7 @@ urlpatterns = [
         CategoriasViewSet.as_view({'get': 'retrieve'}),
         name='categorias'
     ),
+
+    path('',  api_view. getCategorias),
 
 ]
