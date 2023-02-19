@@ -19,7 +19,10 @@ class Categorias(models.Model):
 	descripcion = models.CharField(max_length=200, null=True, blank=True, verbose_name="Descripcion", default="")
 	fecha_alta = models.DateTimeField(auto_now_add=True)
 	fecha_actualizacion = models.DateTimeField(auto_now=True)
- 
+	
+	def __str__(self):
+		return self.nombre
+
 class Meta:	 db_table = 'categorias' 
 
 class Productos(models.Model):
