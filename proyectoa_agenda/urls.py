@@ -15,7 +15,6 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from app_contactos.views import ContactoListar, ContactoDetalle, ContactoNuevo, ContactoActualizar, ContactoEliminar, CerrarSesion
 from django.conf.urls.static import static
 from  app_contactos.serialisables import CategoriasViewSet
 from rest_framework import response,request
@@ -43,6 +42,15 @@ urlpatterns = [
     #Sólo ejemplo para mostrar una página HTML estática
     path('app_contactos/cerrarsesion', CerrarSesion, name='cerrarsesion'),	
 
-    path('categoria/',  getCategorias),
+    path(
+        'categoria/',
+        CategoriasViewSet.as_view({'get': 'retrieve'}),
+        name='categorias'
+    ),
+
+    path('api/categorias', getCategorias),
+    path('api/contactos', getContactos),
+    path('api/productos', getProductos),
+    path('api/ventas', getVentas),
 
 ]

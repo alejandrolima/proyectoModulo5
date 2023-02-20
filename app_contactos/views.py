@@ -13,7 +13,7 @@ from django.contrib import messages
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from .models import Categorias
-from .serialisables import CategoriaSerializer
+from .serialisables import *
 
 #Para obtener todos los registros de la tabla Contactos 
 class ContactoListar(ListView): 
@@ -64,9 +64,30 @@ class ContactoEliminar(SuccessMessageMixin, DeleteView):
 def CerrarSesion(request):
     return render(request, 'logout.html')
 
-
+#categorias
 @api_view(['GET'])
 def getCategorias(request):
     categorias = Categorias.objects.all()
     serializer = CategoriaSerializer(categorias, many=True)
+    return Response(serializer.data)
+
+#contactos
+@api_view(['GET'])
+def getContactos(request):
+    contactos = Contactos.objects.all()
+    serializer = ContactoSerializer(contactos, many=True)
+    return Response(serializer.data)
+
+#productos
+@api_view(['GET'])
+def getProductos(request):
+    productos = Productos.objects.all()
+    serializer = ProductosSerializer(productos, many=True)
+    return Response(serializer.data)
+
+#ventas
+@api_view(['GET'])
+def getVentas(request):
+    ventas = Ventas.objects.all()
+    serializer = VentasSerializer(ventas, many=True)
     return Response(serializer.data)
