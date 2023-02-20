@@ -1,0 +1,29 @@
+# creacion del Proyecto
+django-admin startproject proyectoa_agenda
+django-admin startapp app_contactos
+
+# app-Contactos
+pip install django-bootstrap5
+pip install django-widget-tweaks
+
+#REST API
+pip install djangorestframework
+pip install markdown
+pip install django-filter
+
+# base de datos sqlLitle crear super usuario
+python manage.py createsuperuser
+#  correr el Proyecto
+python manage.py runserver
+
+# Opcion de Las Urls Creadas
+http://localhost:8000/
+
+# Opcion Admin de Dyango
+http://localhost:8000/admin/
+
+# Opcion Crud Personalizado
+http://localhost:8000/app_contactos/
+
+# Opcion Rest Api
+http://localhost:8000/api/categorias?
